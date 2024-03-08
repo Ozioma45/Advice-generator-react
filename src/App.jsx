@@ -8,11 +8,24 @@ function App() {
   // useEffect hook to mimic componentDidMount
   useEffect(() => {
     console.log("COMPONENT DID MOUNT");
+
+    const fetchAdvice = async () => {
+      try {
+        const response = await fetch("https://api.adviceslip.com/advice");
+        if (!response.ok) {
+          throw new Error("Failed to Fetch Advice");
+        }
+        const data = await response.json();
+        console.log(data.slip.advice);
+        setAdvice(data.slip.advice);
+      } catch (error) {
+        console.error("Error fetching advice:", error.message);
+      }
+    };
+    fetchAdvice();
   }, []);
 
-  const fetchAdvice = () => {};
-
-  return <h1>APP</h1>;
+  return <h1>{advice}</h1>;
 }
 
 export default App;
