@@ -25,7 +25,13 @@ function App() {
     fetchAdvice();
   }, []);
 
-  return <h1>{advice}</h1>;
+  return (
+    <div className="app">
+      <div className="card">
+        <h1 className="heading">{advice}</h1>
+      </div>
+    </div>
+  );
 }
 
 export default App;
