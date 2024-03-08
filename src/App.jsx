@@ -5,6 +5,10 @@ function App() {
   // Define state using useState hook
   const [advice, setAdvice] = useState("");
 
+  function reloadPage() {
+    window.location.reload();
+  }
+
   // useEffect hook to mimic componentDidMount
   useEffect(() => {
     console.log("COMPONENT DID MOUNT");
@@ -29,8 +33,8 @@ function App() {
     <div className="app">
       <div className="card">
         <h1 className="heading">{advice}</h1>
-        <button className="button">
-          <span>GIVE ME ADVICE</span>
+        <button className="button" onClick={reloadPage}>
+          <span>MORE ADVICE</span>
         </button>
       </div>
     </div>
